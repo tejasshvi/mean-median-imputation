@@ -1,0 +1,16 @@
+import pandas as pd
+import numpy as np
+
+# Sample data
+data = {'A': [2, 3, np.nan, 5, np.nan]}
+df = pd.DataFrame(data)
+
+# Mean Imputation
+mean_value = df['A'].mean()
+df['A_mean_imputed'] = df['A'].fillna(mean_value)
+
+# Median Imputation
+median_value = df['A'].median()
+df['A_median_imputed'] = df['A'].fillna(median_value)
+
+print(df)
