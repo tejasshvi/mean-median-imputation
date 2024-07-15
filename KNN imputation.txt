@@ -1,0 +1,15 @@
+import pandas as pd
+import numpy as np
+from sklearn.impute import KNNImputer
+
+# Sample data
+data = {'A': [2, 3, np.nan, 5, np.nan], 'B': [1, np.nan, 3, 4, 5]}
+df = pd.DataFrame(data)
+
+# Initialize the KNNImputer with the number of neighbors (k)
+knn_imputer = KNNImputer(n_neighbors=2)
+
+# Perform KNN imputation
+df_imputed = pd.DataFrame(knn_imputer.fit_transform(df), columns=df.columns)
+
+print(df_imputed)
